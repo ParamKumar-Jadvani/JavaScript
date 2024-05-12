@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      }
+      #products {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 30px;
+        row-gap: 20px;
+      }
+
+      #products div img {
+        width: 250px;
+        height: 300px;
+        display: block;
+      }
+
+      #products .box,
+      .imgDiv,
+      .titleDiv {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+      }
+
+      #products .box {
+        height: 600px;
+        width: 270px;
+        border: 1px solid black;
+      }
+
+      #products div p {
+        display: block;
+        font-size: larger;
+        font-weight: 500;
+        margin: 7%;
+      }
+
+      .titleDiv {
+        height: 170px;
+      }
+
+      .titleDiv button {
+        height: 30px;
+        width: 120px;
+        background: rgb(228, 228, 228);
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="products"></div>
+  </body>
+  <script src="./index.js"></script>
+</html>
