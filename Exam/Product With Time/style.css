@@ -1,47 +1,77 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 #Product {
-  column-gap: 2px;
-  row-gap: 5px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 10px !important;
+    column-gap: 10px !important
 }
 
 .div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: start;
-  padding: 1%;
-  border: 0.5px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: start;
+    padding: 1%;
+    border: 0.5px solid black;
+    font-weight: 600;
+    p{
+        font-size: x-large;
+    }
 }
 
 .img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2%;
-  img {
-    height: 100%;
-    width: 100%;
-  }
+    height: 70%;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2%;
+
+    img {
+        height: 100%;
+        width: 100%;
+    }
 }
 
 .btnDiv {
-  width: 70%;
-  display: flex;
-  justify-content: space-around;
-  button{
-    border: 0.5px solid black;
-  }
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+    padding: 1%;
+
+    button {
+        border: 0.5px solid black;
+        width: 48%;
+    }
+}
+
+@media(max-width:1440px) and (min-width:768px) {
+    #Product {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media(max-width:767px) and (min-width:424px) {
+    #Product {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width:425px) and (min-width:0px) {
+    #Product {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }

@@ -37,7 +37,7 @@ const UI_Maker = () => {
 
     let div = document.createElement("div");
     div.append(imgDiv, name, price, btnDiv);
-    div.setAttribute("class", "div col-lg-3 col-sm-6");
+    div.setAttribute("class", "div");
 
     document.getElementById("Product").append(div);
     buy.addEventListener("click", buy_Alert);
@@ -59,4 +59,3 @@ const Product_Delete = (index) => {
   UI_Maker();
 };
 
-document.getElementById("form").addEventListener("submit", dataHandle);
