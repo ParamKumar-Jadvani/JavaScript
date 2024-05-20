@@ -24,6 +24,10 @@ form {
   text-align: start;
   padding: 1%;
   border: 0.5px solid black;
+  font-weight: 600;
+  p {
+    font-size: x-large;
+  }
 }
 
 .img {
@@ -41,7 +45,7 @@ form {
   width: 70%;
   display: flex;
   justify-content: space-around;
-  button{
+  button {
     border: 0.5px solid black;
   }
 }
