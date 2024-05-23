@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .div {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container,
+      .container-fluid {
+        height: 50vh;
+        width: 95vw;
+        background-color: aliceblue;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .container-fluid {
+        height: 100% !important;
+        width: 100% !important;
+        flex-direction: row !important;
+        margin: 5%;
+      }
+
+      .box {
+        height: 200px;
+        width: 300px;
+        background: black;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: xx-large;
+      }
+
+      button{
+        height: 100px;
+        width: 130px;
+        font-size: x-large;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="div"></div>
+    <div class="div">
+      <div class="container">
+        <div class="container-fluid">
+          <div class="box" id="box-1">10</div>
+          <div class="box" id="box-2">10</div>
+          <div class="box" id="box-3">10</div>
+          <div class="box" id="box-4">10</div>
+        </div>
+        <button id="btn">Start</button>
+      </div>
+    </div>
+  </body>
+  <script src="./index.js"></script>
+</html>

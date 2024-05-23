@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        transition: all 0.5s;
+        box-sizing: border-box;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #10101e;
+      }
+
+      .datetime {
+        color: white;
+        background-color: #10101e;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        width: 400px;
+        padding: 15px 15px;
+        border: 3px solid #2e94e3;
+        border-radius: 5px;
+        margin: 5%;
+      }
+
+      .time {
+        font-size: 62px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        -webkit-box-reflect: below 1px
+          linear-gradient(transparent, rgba(255, 255, 255, 0.1));
+      }
+
+      .datetime:hover,button:hover {
+        background-color: #2e95e3dd;
+        box-shadow: 1px 1px 30px 1px #2e94e3;
+      }
+
+      .time span:not(:last-child) {
+        position: relative;
+        margin: 0 6px;
+        font-weight: 600;
+        text-align: center;
+        letter-spacing: 3px;
+      }
+
+      button{
+        background-color: #10101e;
+        border: 3px solid #2e94e3;
+        border-radius: 5px;
+        color: white;
+        margin: 2%;
+        height: 50px;
+        width: 130px;
+        font-size: x-large;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="datetime">
+      <div class="time">
+        <span id="hour">00 : </span>
+        <span id="minutes">00 : </span>
+        <span id="seconds">00</span>
+      </div>
+    </div>
+
+    <button id="Start">Start</button>
+    <button id="Stop">Stop</button>
+    <button id="Reset">Reset</button>
+  </body>
+  <script src="./index.js"></script>
+</html>
