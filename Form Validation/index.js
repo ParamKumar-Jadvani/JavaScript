@@ -1,20 +1,35 @@
 const form = document.querySelector(".form");
-let arr = [];
-let valid = new Map();
 
-const data_Handle = () => {
-  let data = {
-    name: document.querySelector("#name").value,
-    number: document.querySelector("#number").value,
-    password: document.querySelector("#password").value,
-  };
-  arr.push(data);
+const userRegex = /^[0-9A-Za-z]{8,100}$/;
+// const data_Handle = () => {
+//   let name = document.querySelector("#name");
+//   let number = document.querySelector("#number");
+//   let email = document.querySelector("#email");
+//   let psw = document.querySelector("#password");
+// };
+
+const Check = (e) => {
+  let name = document.querySelector("#name");
+
+  console.log(e.key);
+
+  e.key === "Backspace" || e.key === "Delete"
+    ? Validation(name)
+    : Validation(name);
 };
 
-const Validation = () => {
-  arr.map((elem) => {
-    let name = elem.name > 2 ? true : false;
-    let number = elem.number.length == 10 ? true : false;
-    let password = elem.password.length > 8 ? true : false;
-  });
+const Validation = (Tag) => {
+  console.log("key press...");
+  if (userRegex.test(Tag.value)) {
+    Tag.classList.remove("Not-Valid");
+    Tag.classList.add("Valid");
+    console.log("User Name Passed " + Tag.value);
+  } else {
+    Tag.classList.remove("Valid");
+    Tag.classList.add("Not-Valid");
+    console.log("username not Passed " + Tag.value);
+  }
 };
+document.querySelector("#name").addEventListener("keyup", Check);
+
+// console.log(form.querySelector('#name').value);
