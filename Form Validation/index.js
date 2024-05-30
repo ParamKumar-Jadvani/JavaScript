@@ -1,35 +1,45 @@
+let Data = [];
 const form = document.querySelector(".form");
-
-const userRegex = /^[0-9A-Za-z]{8,100}$/;
-// const data_Handle = () => {
-//   let name = document.querySelector("#name");
-//   let number = document.querySelector("#number");
-//   let email = document.querySelector("#email");
-//   let psw = document.querySelector("#password");
-// };
-
-const Check = (e) => {
-  let name = document.querySelector("#name");
-
-  console.log(e.key);
-
-  e.key === "Backspace" || e.key === "Delete"
-    ? Validation(name)
-    : Validation(name);
+const input = form.querySelectorAll("input");
+const regexMap = {
+  username: /^(?!\s)[a-zA-Z0-9 ]+(?<!\s)$/,
+  email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+  password: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
 };
 
 const Validation = (Tag) => {
-  console.log("key press...");
-  if (userRegex.test(Tag.value)) {
-    Tag.classList.remove("Not-Valid");
-    Tag.classList.add("Valid");
-    console.log("User Name Passed " + Tag.value);
+  const inputType = Tag.getAttribute("validation-type");
+  const Regex = regexMap[inputType];
+
+  if (Regex.test(Tag.value)) {
+    Tag.style.border = "2px solid blue";
   } else {
-    Tag.classList.remove("Valid");
-    Tag.classList.add("Not-Valid");
-    console.log("username not Passed " + Tag.value);
+    Tag.style.border = "2px solid red";
   }
 };
-document.querySelector("#name").addEventListener("keyup", Check);
 
-// console.log(form.querySelector('#name').value);
+input.forEach((inputTag) => {
+  inputTag.addEventListener("keyup", (event) => Validation(event.target));
+
+  inputTag.addEventListener("focus", (event) => Validation(event.target));
+
+  inputTag.addEventListener(
+    "blur",
+    (event) => (event.target.style.border = "")
+  );
+});
+
+const dataHandle = (e) => {
+  e.preventDefault();
+  Object = {
+    username: form.querySelector("#name").value,
+    email: form.querySelector("#email").value,
+    number: form.querySelector("#number").value,
+  };
+  Data.push(dataHandle);
+  UI_Maker();
+};
+
+const UI_Maker = () => {};
+
+form.addEventListener("submit", () => dataHandle);

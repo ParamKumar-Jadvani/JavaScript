@@ -46,11 +46,11 @@
         font-size: medium;
       }
 
-      .Not-Valid:focus{
+      .Not-Valid:focus {
         border: 2px solid red;
       }
 
-      .Valid:focus{
+      .Valid:focus {
         border: 2px solid green;
       }
     </style>
@@ -60,27 +60,45 @@
     <form
       class="d-flex flex-column justify-content-center align-item-center mx-auto form mt-3"
     >
-      <input type="text" id="name" class="m-3 p-2" placeholder="Enter Name" />
+      <input
+        type="text"
+        id="name"
+        class="m-3 p-2"
+        validation-type="username"
+        placeholder="Enter Name"
+      />
       <input
         type="number"
         id="number"
         class="m-3 p-2"
+        validation-type="number"
         placeholder="Enter Number"
       />
       <input
         type="email"
         id="email"
         class="m-3 p-2"
+        validation-type="email"
         placeholder="Enter Email"
       />
       <input
         type="password"
         id="password"
         class="m-3 p-2"
+        validation-type="password"
         placeholder="Enter Password"
       />
       <button type="submit" class="m-3 p-2">Submit</button>
     </form>
+
+    <!-- <table>
+      <thead>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Number</th>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table> -->
   </body>
 
   <script
