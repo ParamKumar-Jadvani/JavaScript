@@ -90,11 +90,10 @@ form {
   font-weight: 600;
   margin: 3% auto;
   padding: 2%;
-  width: 500px;
-  height: 300px;
   p {
     width: 100%;
     word-spacing: 5px;
+    margin: 2%;
   }
   button {
     margin: 2%;
@@ -102,5 +101,13 @@ form {
     width: 180px;
     font-size: large;
     font-weight: 600;
+  }
+  .deposit {
+    width: 100%;
+  }
+  input {
+    height: 30px;
+    width: 300px;
+    margin: 6%;
   }
 }

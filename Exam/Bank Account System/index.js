@@ -54,7 +54,15 @@ let data = [
   },
 ];
 
-const Print_Data = () => {
+const Print_Data = (name, email, number, age) => {
+  const account = new Bank(name, email, number, age);
+  account.print();
+
+  deposit.addEventListener("click", () => {
+    const amount = Number(document.getElementById("Amtval").value);
+    account.Deposit(amount);
+  });
+
   data.map((elem) => {
     let title = document.createElement("h4");
     title.innerHTML = `${elem.title} `;
@@ -63,10 +71,10 @@ const Print_Data = () => {
     img.src = elem.image;
 
     let price = document.createElement("p");
-    price.innerHTML = `$ ${elem.price}`;
+    price.innerHTML = `${elem.price}`;
 
     let button = document.createElement("button");
-    button.setAttribute("id", "btn");
+    button.setAttribute("class", "btn");
     button.innerHTML = ` BUY NOW `;
 
     let imgDiv = document.createElement("div");
@@ -82,6 +90,11 @@ const Print_Data = () => {
     div.append(imgDiv, titleDiv);
 
     document.getElementById("products").append(div);
+
+    button.addEventListener("click", () => {
+      console.log(account);
+      account.Withdraw(parseFloat(elem.price));
+    });
   });
 };
 
@@ -100,73 +113,89 @@ class Bank {
   }
 
   print() {
-    name.innerHTML = `Name : ${this.#name}`;
-    email.innerHTML = `Email : ${this.#email}`;
-    balance.innerHTML = `Balance : ${this.#balance}`;
-    number.innerHTML = `Number : ${this.#number}`;
-    age.innerHTML = `Age : ${this.#age}`;
+    nameTag.innerHTML = `Name : ${this.#name}`;
+    emailTag.innerHTML = `Email : ${this.#email}`;
+    balanceTag.innerHTML = `Balance : ${this.#balance}`;
+    numberTag.innerHTML = `Number : ${this.#number}`;
+    ageTag.innerHTML = `Age : ${this.#age}`;
     btn.innerHTML = `Check Balance`;
     btn.setAttribute("id", "checkAmt");
-    btn1.innerHTML = `Deposit Amount : ${input}`;
-    btn1.setAttribute("id", "dptAmt");
+    deposit.innerHTML = `Deposit Amount`;
+    deposit.setAttribute("id", "dptAmt");
     input.setAttribute("id", "Amtval");
 
-    document
-      .querySelector("#account")
-      .append(name, age, number, email, balance, btn);
+    input.placeholder = `Enter Deposit Amount`;
+
+    let depositDiv = document.createElement("div");
+    depositDiv.setAttribute("class", "deposit");
+    depositDiv.append(input, deposit);
+
+    account.append(
+      nameTag,
+      ageTag,
+      numberTag,
+      emailTag,
+      balanceTag,
+      input,
+      deposit,
+      btn
+    );
+
+    account.style.border = "1px solid";
+    account.style.height = "500px";
+    account.style.width = "500px";
   }
 
   check_Balance() {
-    balance.innerHTML = `Balance : ${this.#balance};`;
+    balanceTag.innerHTML = `Balance : ${this.#balance}`;
   }
 
   Withdraw(price) {
-    flag = this.#balance > price && this.#balance < 0 ? true : false;
+    const flag = this.#balance > price ? true : false;
 
     if (flag) {
       this.#balance -= price;
-      balance.innerHTML = `Balance : ${this.#balance};`;
+      balanceTag.innerHTML = `Balance : ${this.#balance};`;
     } else {
       alert("You don't have enough balance");
     }
 
     console.log(flag);
   }
+
+  Deposit(price) {
+    this.#balance +=
+      price > 0 ? price : alert("You don't have enough money to deposit");
+    balanceTag.innerHTML = `Balance : ${this.#balance}`;
+    input.innerHTML = "";
+  }
 }
 
-const make_Account = () => {
+const make_Account = (e) => {
+  e.preventDefault();
   const name = document.getElementById("name").value;
   const email = document.getElementById("email").value;
   const number = document.getElementById("number").value;
   const age = document.getElementById("age").value;
 
-  account = new Bank(name, email, number, age);
-  account.print();
-  Print_Data();
-  form.reset();
-};
-
-const checkAge = (e) => {
-  e.preventDefault();
-  console.log(e);
-
-  const age = document.getElementById("age").value;
   const flag = age > 15 && age < 60 ? true : false;
   if (flag) {
-    make_Account();
+    form.reset();
+    Print_Data(name, email, number, age);
   } else {
     alert("You are not eligible to open an account");
   }
 };
 
 const form = document.querySelector("form");
-const name = document.createElement("p");
-const email = document.createElement("p");
-const balance = document.createElement("p");
-const number = document.createElement("p");
-const age = document.createElement("p");
+const account = document.querySelector("#account");
+const nameTag = document.createElement("p");
+const emailTag = document.createElement("p");
+const balanceTag = document.createElement("p");
+const numberTag = document.createElement("p");
+const ageTag = document.createElement("p");
 const btn = document.createElement("button");
 const input = document.createElement("input");
-const btn1 = document.createElement("button");
+const deposit = document.createElement("button");
 
-form.addEventListener("submit", checkAge);
+form.addEventListener("submit", make_Account);
