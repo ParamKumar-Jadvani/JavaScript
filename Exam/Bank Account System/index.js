@@ -164,10 +164,12 @@ class Bank {
   }
 
   Deposit(price) {
-    this.#balance +=
-      price > 0 ? price : alert("You don't have enough money to deposit");
+    if (price < 1 || price == "") {
+      alert("You don't have enough money to deposit");
+    } else {
+      this.#balance += price;
+    }
     balanceTag.innerHTML = `Balance : ${this.#balance}`;
-    input.innerHTML = "";
   }
 }
 
