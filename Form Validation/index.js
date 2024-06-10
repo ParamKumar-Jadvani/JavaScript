@@ -8,6 +8,7 @@ const regexMap = {
 };
 
 const Validation = (Tag) => {
+  console.log(Tag);
   const inputType = Tag.getAttribute("validation-type");
   const Regex = regexMap[inputType];
 

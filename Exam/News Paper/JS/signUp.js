@@ -1,19 +1,22 @@
-let newsCollection = JSON.parse(localStorage.getItem("newsData")) || [];
-
-const newsData = (event) => {
+const userData = (event) => {
   event.preventDefault();
-
-  const newsTitle = document.querySelector("#newsTitle").value;
-  const newsContent = document.querySelector("#newsContent").value;
-  const imageUrl = document.querySelector("#imageUrl").value;
+  const name = document.querySelector("#username").value;
+  const email = document.querySelector("#email").value;
+  const psw = document.querySelector("#password").value;
+  const img = document.querySelector("#image").value;
   const country = document.querySelector("#Country").value;
 
-  const news = { newsTitle, newsContent, imageUrl, country };
+  const data = {
+    name,
+    email,
+    psw,
+    img,
+    country,
+  };
 
-  newsCollection.push(news);
-  localStorage.setItem("newsData", JSON.stringify(newsCollection));
-
-  window.location.href = "index.html";
+  console.log(data);
+  localStorage.setItem("userData", JSON.stringify(data));
+  window.location.href = "login.html";
 };
 
-document.querySelector("form").addEventListener("submit", newsData);
+document.querySelector("form").addEventListener("submit", userData);
