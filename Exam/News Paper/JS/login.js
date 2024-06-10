@@ -1,25 +1,28 @@
 const checkUserData = (event) => {
   event.preventDefault();
+
   const SignUpdata = JSON.parse(localStorage.getItem("userData")) || null;
-
   const email = document.querySelector("#email").value;
-  const psw = document.querySelector("#password").value;
+  const password = document.querySelector("#password").value;
 
-  if (SignUpdata == null) {
+  if (!SignUpdata) {
     alert("Please Sign up First");
     window.location.href = "signUp.html";
-  } else if (SignUpdata.email === email) {
-    if (SignUpdata.psw === psw) {
+    return;
+  }
+
+  if (SignUpdata.email === email) {
+    if (SignUpdata.psw === password) {
       alert("Login successful");
       window.location.href = "index.html";
     } else {
       alert("Wrong Password");
-      window.location.reload();
     }
   } else {
     alert("Wrong Email");
-    window.location.reload();
   }
+
+  window.location.reload();
 };
 
 document.querySelector("form").addEventListener("submit", checkUserData);

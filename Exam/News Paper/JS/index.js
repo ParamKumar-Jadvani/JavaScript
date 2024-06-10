@@ -1,5 +1,9 @@
 const newsCollection = JSON.parse(localStorage.getItem("newsData")) || [];
 const userdata = JSON.parse(localStorage.getItem("userData"));
+const Variables = {
+  Like: parseInt(localStorage.getItem("Like")) || 0,
+  Share: parseInt(localStorage.getItem("Share")) || 0,
+};
 
 const newsData = (data) => {
   let newsDataId = document.querySelector("#newsData");
@@ -12,44 +16,34 @@ const newsData = (data) => {
     let like = document.createElement("btn");
     let share = document.createElement("btn");
     let div = document.createElement("div");
+    let span = document.createElement("span");
+
+    span.innerHTML = "0";
 
     title.innerHTML = `<span class="title">${news.newsTitle}</span>`;
     content.innerHTML = `<span id="content">${news.newsContent}</span>`;
     img.src = news.imageUrl;
     country.innerHTML = `Country : <span class="ctry">${news.Country}</span>`;
-    like.innerHTML = `<button
-        type="button"
-        class="btn btn-primary position-relative m-2"
-        id="Like"
-        iconName="Like"
-      >
-        <i class="fa-solid fa-heart"></i>
-        <span
-          class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-          id="badge"
-        >
-          0
-        </span></button
-      >`;
-    share.innerHTML = `<button
-        type="button"
-        class="btn btn-primary position-relative m-2"
-        id="Share"
-        iconName="Share"
-      >
-        <i class="fa-solid fa-share"></i>
-        <span
-          class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-        >
-          0
-        </span></button
-      >`;
+    like.innerHTML = `<img src="../Image/like.png" alt="" class="img-fluid w-50">
+    <span class="badge badge-light">${
+      Variables[like] === undefined ? `00` : Variables[like]
+    }</span>`;
+
+    share.innerHTML = `<img src="../Image/share.png" alt="" class="img-fluid w-50">
+    <span class="badge badge-light">${
+      Variables[share] === undefined ? `00` : Variables[share]
+    }</span>`;
 
     title.setAttribute("class", "m-2");
-    img.setAttribute("class", "m-2 img-fluid");
+    img.setAttribute("class", "m-2 ");
     content.setAttribute("class", "m-3");
     country.setAttribute("class", "m-3");
     div.setAttribute("class", "m-3");
+
+    like.className = "btn btn-primary position-relative m-2";
+    share.className = "btn btn-primary position-relative m-2";
+    like.setAttribute("iconName", "Like");
+    share.setAttribute("iconName", "Share");
 
     div.append(title, img, content, country, like, share);
 
@@ -78,22 +72,26 @@ const userForm = (data) => {
   userId.append(img, name, email, country);
 };
 
-const Variables = {
-  Like: parseInt(localStorage.getItem("Like")) || 0,
-  Share: parseInt(localStorage.getItem("Share")) || 0,
-};
-
 const Counter_Storage = (event) => {
-  const type = event.target.getAttribute("iconName");
-  const span = event.target.querySelector("span");
-  let iconNum = Variables[type];
-  console.log(iconNum, type, Variables[type]);
-  iconNum++;
-  span.innerHTML = iconNum;
-
-  Variables[type] = iconNum;
-  console.log(localStorage.getItem(type));
+  const type = event.currentTarget.getAttribute("iconName");
+  Variables[type]++;
+  localStorage.setItem(type, Variables[type]);
+  event.currentTarget.querySelector("span").textContent = Variables[type];
 };
+
+const countryNews = (event) => {
+  event.preventDefault();
+  const countryName = event.target.getAttribute("country");
+  const filteredNews =
+    countryName !== "All"
+      ? newsCollection.filter((news) => news.Country === countryName)
+      : newsCollection;
+  newsData(filteredNews);
+};
+
+document.querySelectorAll("#country div button").forEach((element) => {
+  element.addEventListener("click", countryNews);
+});
 
 newsData(newsCollection);
 userForm(userdata);

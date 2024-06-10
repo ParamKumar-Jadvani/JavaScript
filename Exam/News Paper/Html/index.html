@@ -10,13 +10,6 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
     <style>
       * {
         margin: 0 !important;
@@ -40,18 +33,19 @@
         font-weight: 600;
         text-decoration: underline;
       }
-      #navbar {
+      #navbar,
+      #country {
         box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
           rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
       }
       #newsData {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        row-gap: 3%;
-        column-gap: 3%;
+        column-gap: 2%;
         box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
           rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
         div {
+          width: 280px;
           text-align: justify;
           box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         }
@@ -62,7 +56,7 @@
         }
 
         img {
-          width: 90%;
+          width: 94%;
         }
       }
       .title {
@@ -80,18 +74,6 @@
         align-items: center;
         box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
         text-align: justify;
-      }
-      .btn {
-        width: 35px !important;
-        height: 30px !important;
-        font-size: large !important;
-        text-align: center !important;
-        font-weight: 600 !important;
-        .badge {
-          font-size: medium !important;
-          height: 17px !important;
-          width: 20px !important;
-        }
       }
       .fa-solid {
         color: black;
@@ -121,6 +103,26 @@
               <button class="border-0">
                 <a href="./signUp.html">Sign Up</a>
               </button>
+            </div>
+          </div>
+          <div class="d-flex justify-content-around my-2" id="country">
+            <div class="my-3">
+              <button class="border-0" country="All">All</button>
+            </div>
+            <div class="my-3">
+              <button class="border-0" country="India">India</button>
+            </div>
+            <div class="my-3">
+              <button class="border-0" country="America">America</button>
+            </div>
+            <div class="my-3">
+              <button class="border-0" country="Germany">Germany</button>
+            </div>
+            <div class="my-3">
+              <button class="border-0" country="England">England</button>
+            </div>
+            <div class="my-3">
+              <button class="border-0" country="France">France</button>
             </div>
           </div>
           <div id="newsData" class="my-3"></div>
