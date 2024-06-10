@@ -42,7 +42,6 @@ const newsData = (data) => {
           class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
         >
           0
-          <span class="visually-hidden">unread messages</span>
         </span></button
       >`;
 
@@ -53,6 +52,9 @@ const newsData = (data) => {
     div.setAttribute("class", "m-3");
 
     div.append(title, img, content, country, like, share);
+
+    like.addEventListener("click", Counter_Storage);
+    share.addEventListener("click", Counter_Storage);
 
     newsDataId.appendChild(div);
   });
@@ -95,6 +97,3 @@ const Counter_Storage = (event) => {
 
 newsData(newsCollection);
 userForm(userdata);
-
-document.querySelector("#Like").addEventListener("click", Counter_Storage);
-document.querySelector("#Share").addEventListener("click", Counter_Storage);
