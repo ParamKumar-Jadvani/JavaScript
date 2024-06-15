@@ -1,0 +1,36 @@
+* {
+    font-size: 18px !important;
+    font-weight: 500 !important;
+  }
+  body {
+    background: #f8f9fa;
+  }
+  .card {
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .card-header {
+    background-color: #3cb1c5;
+    color: white;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+  }
+  .btn-primary {
+    width: 150px !important;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
+    background-color: #000;
+    border-color: #3cb1c5;
+    transition: all 0.4s;
+  }
+  .btn-primary:hover {
+    background-color: #3cb1c5;
+    border-color: #000;
+  }
+  .form-control:focus {
+    box-shadow: none;
+    border-color: #3cb1c5;
+  }
+  #bookForm {
+    margin-top: 10% !important;
+  }
