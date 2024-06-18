@@ -61,7 +61,7 @@ const navbar_Components = () => {
           aria-controls="offcanvasNavbar"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon-white"></span>
+          <span class="navbar-toggler-icon"></span>
         </button>
       </div>
     </nav>`;
@@ -106,6 +106,7 @@ const navbar_Styles = () => {
       .navbar-toggler {
         border: none;
         font-size: 1.25rem;
+        background-color: #000;
       }
       .navbar-toggler:focus,
       .btn-close:focus {
