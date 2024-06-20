@@ -15,4 +15,8 @@ const getElement = (id) => {
   return document.getElementById(id);
 };
 
-export { createElement, getElement, getValue };
+const getElementQuerySelector = (id) => {
+  return document.querySelector(id);
+};
+
+export { createElement, getElement, getValue, getElementQuerySelector };

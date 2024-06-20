@@ -1,5 +1,7 @@
-import { getElement } from "../Components/Helper.js";
+import { getElement, getElementQuerySelector } from "../Components/Helper.js";
 import { navbar_Components, navbar_Styles } from "../Components/Navbar.js";
+
+const ProductData = JSON.parse(localStorage.getItem("productData")) || [];
 
 const navbar = () => {
   const navbar = getElement("navbar");
@@ -12,4 +14,28 @@ const navbar = () => {
   });
 };
 
+const Product_Form = (event) => {
+  event.preventDefault();
+  const name = getElement("Title").value;
+  const price = getElement("Price").value;
+  const category = getElement("Category").value;
+  const image = getElement("Image").value;
+  const description = getElement("Description").value;
+
+  const Data = {
+    name,
+    price,
+    category,
+    image,
+    description,
+  };
+
+  ProductData.push(Data);
+  localStorage.setItem("productData", JSON.stringify(ProductData));
+
+  form.reset();
+};
+
 navbar();
+const form = getElementQuerySelector("form");
+form.addEventListener("submit", Product_Form);

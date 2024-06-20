@@ -11,7 +11,9 @@ const navbar_Components = () => {
           aria-labelledby="offcanvasNavbarLabel"
         >
           <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Logo</h5>
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+              <a href="/Local Storage/index.html">Logo</a>
+            </h5>
             <button
               type="button"
               class="btn-close"
@@ -23,7 +25,7 @@ const navbar_Components = () => {
             <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
               <li class="nav-item">
                 <a
-                  class="nav-link active mx-lg-2"
+                  class="nav-link active mx-lg-2 text-lg-light text-dark"
                   aria-current="page"
                   href="/Local Storage/index.html"
                   >Home</a
@@ -42,6 +44,9 @@ const navbar_Components = () => {
                   href="/Local Storage/HTML/Add_Product.html"
                   >Product Add</a
                 >
+              </li>
+              <li class="nav-item">
+                
               </li>
               <!-- <li class="nav-item"></li> -->
             </ul>
@@ -81,12 +86,19 @@ const navbar_Styles = () => {
         margin: 20px;
         border-radius: 16px;
         padding: 0.5rem;
+        z-index: 9999 !important;
       }
-      .navbar-brand {
+      .navbar-brand,
+      .offcanvas-title > a {
         font-weight: 500;
         color: #039aff !important;
         font-size: 24px;
         transition: all 0.3s;
+        text-decoration: none !important;
+      }
+
+      .offcanvas-title > a:hover {
+        color: #000 !important;
       }
       .navbar-brand:hover {
         color: #fff !important;
@@ -120,7 +132,7 @@ const navbar_Styles = () => {
       }
       .nav-link:hover,
       .nav-link.active {
-        color: #fff !important;
+        color: #000 !important;
       }
 
       @media (min-width: 991px) {
@@ -140,6 +152,31 @@ const navbar_Styles = () => {
           width: 100%;
           visibility: visible;
         }
+        .nav-link {
+          color: #666777 !important;
+          font-weight: 500;
+          position: relative;
+        }
+        .nav-link:hover,
+        .nav-link.active {
+          color: #fff !important;
+        }
+      }
+      .nav-link::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background-color: #039aff;
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+      }
+      .nav-link:hover::before {
+        width: 100%;
+        visibility: visible;
       }`;
 };
 
