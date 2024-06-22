@@ -2,6 +2,7 @@ import { getElement, getValue } from "../Components/Helper.js";
 import { navbar_Components, navbar_Styles } from "../Components/Navbar.js";
 
 const isLogin = localStorage.getItem("isLogin") || false;
+const signUpForm = getElement("SignupForm");
 
 const navbar = () => {
   const navbar = getElement("navbar");
@@ -23,25 +24,31 @@ const SignUpData = (event) => {
     return;
   }
 
-  const name = getValue("inputName");
-  const email = getValue("inputEmail");
-  const password = getValue("inputPassword");
-  const confirmPassword = getValue("inputConfirmPassword");
+  if (signUpForm.checkValidity()) {
+    const password = getValue("inputPassword");
+    const confirmPassword = getValue("inputConfirmPassword");
 
-  if (password === confirmPassword) {
-    const userData = {
-      name,
-      email,
-      password,
-    };
-    localStorage.setItem("userData", JSON.stringify(userData));
-    window.location.href = "login.html";
+    if (password !== confirmPassword) {
+      getElement("inputConfirmPassword").setCustomValidity(
+        "Passwords do not match."
+      );
+    } else {
+      getElement("inputConfirmPassword").setCustomValidity("");
+      const name = getValue("inputName");
+      const email = getValue("inputEmail");
+      const userData = {
+        name,
+        email,
+        password,
+      };
+      localStorage.setItem("userData", JSON.stringify(userData));
+      alert("Form submitted successfully!");
+      window.location.href = "login.html";
+    }
   } else {
-    alert("Password Not Match");
-    window.location.reload();
+    signUpForm.classList.add("was-validated");
   }
 };
 
-const signUpForm = getElement("SignupForm");
 signUpForm.addEventListener("submit", SignUpData);
 navbar();

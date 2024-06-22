@@ -42,13 +42,32 @@ const navbar_Components = () => {
                 <a
                   class="nav-link active mx-lg-2"
                   href="/Local Storage/HTML/Add_Product.html"
-                  >Product Add</a
+                  >Product Form</a
                 >
               </li>
               <li class="nav-item">
-                
+                <a
+                  class="nav-link active mx-lg-2"
+                  href="/Local Storage/HTML/CartPage.html"
+                  >Cart</a
+                >
               </li>
-              <!-- <li class="nav-item"></li> -->
+              <li class="nav-item">
+                <div class="container-fluid">
+                  <form class="d-flex" role="search" id="search">
+                    <input
+                      class="form-control me-2"
+                      type="search"
+                      placeholder="Search"
+                      aria-label="Search"
+                      id="input-search"
+                    />
+                    <button class="btn" id="search-btn" type="submit">
+                      Search
+                    </button>
+                  </form>
+                </div>
+              </li>
             </ul>
           </div>
         </div>
@@ -66,7 +85,7 @@ const navbar_Components = () => {
           aria-controls="offcanvasNavbar"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span><img src="/Local Storage/Images/menu-bar.png" alt="" /></span>
         </button>
       </div>
     </nav>`;
@@ -75,7 +94,10 @@ const navbar_Components = () => {
 const navbar_Styles = () => {
   return `* {
         box-sizing: border-box !important;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif !important;
       }
+
       #navbar {
         position: sticky;
         top: 0;
@@ -83,10 +105,8 @@ const navbar_Styles = () => {
       .navbar {
         background-color: #000;
         height: 80px;
-        margin: 20px;
-        border-radius: 16px;
         padding: 0.5rem;
-        z-index: 9999 !important;
+        z-index: 9999;
       }
       .navbar-brand,
       .offcanvas-title > a {
@@ -136,27 +156,6 @@ const navbar_Styles = () => {
       }
 
       @media (min-width: 991px) {
-        .nav-link::before {
-          content: "";
-          position: absolute;
-          bottom: 0;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 0;
-          height: 2px;
-          background-color: #039aff;
-          visibility: hidden;
-          transition: 0.3s ease-in-out;
-        }
-        .nav-link:hover::before {
-          width: 100%;
-          visibility: visible;
-        }
-        .nav-link {
-          color: #666777 !important;
-          font-weight: 500;
-          position: relative;
-        }
         .nav-link:hover,
         .nav-link.active {
           color: #fff !important;
@@ -177,6 +176,33 @@ const navbar_Styles = () => {
       .nav-link:hover::before {
         width: 100%;
         visibility: visible;
+      }
+
+      #search-btn {
+        background-color: #039aff;
+        color: #fff;
+        transition: all 0.3s ease-in-out;
+        padding: 8px 20px;
+        border-radius: 50px;
+        font-size: 14px;
+      }
+      #search-btn:hover {
+        background: #fff;
+        color: #039aff;
+        border-color: #006bb3;
+        border: 1px solid;
+      }
+
+      #input-search {
+        transition: all 0.3s ease-in-out !important;
+        padding: 8px 20px;
+        border-radius: 50px;
+        font-size: 14px;
+      }
+      #input-search:hover {
+        border-color: #039aff !important;
+        border: 1px solid !important;
+        box-shadow: rgba(255, 255, 255, 0.56) 0px 22px 70px 4px !important;
       }`;
 };
 

@@ -17,21 +17,156 @@
       #navbar {
         z-index: 9999 !important;
       }
-      #card {
-        /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
-        box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px,
-          rgba(0, 0, 0, 0.05) 0px 5px 10px;
-      }
       .card {
-        overflow: hidden;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+          rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
         border: none !important;
+      }
+      #card-img {
+        object-fit: cover !important;
+      }
+      #Filter {
+        margin-top: 9.5% !important;
+        border: none !important;
+      }
+      @media (min-width: 413px) and (max-width: 660px) {
+        #Filter {
+          margin-top: 15% !important;
+        }
+      }
+      @media (min-width: 300px) and (max-width: 412px) {
+        #Filter {
+          margin-top: 19% !important;
+        }
+      }
+      .form-check {
+        font-weight: 500 !important;
+        font-size: 16px;
       }
     </style>
   </head>
   <body>
     <div id="navbar"></div>
-    <div class="m-4">
-      <div class="row row-cols-1 row-cols-md-3 g-4" id="card-head"></div>
+    <div class="container-fluid mt-4">
+      <div class="row">
+        <div class="col-md-3 col-12" id="Filter">
+          <div class="card">
+            <div
+              class="card-body"
+              style="
+                box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+                  rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+              "
+            >
+              <h5 class="card-title mb-4 fw-bold">Filters</h5>
+
+              <form id="filterFormPrice">
+                <h6 class="mb-3 fw-bold">Price</h6>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="price"
+                    value="HTL"
+                    id="priceHTL"
+                  />
+                  <label class="form-check-label" for="priceHTL"
+                    >Higher to Lower</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="price"
+                    value="LTH"
+                    id="priceLTH"
+                  />
+                  <label class="form-check-label" for="priceLTH"
+                    >Lower to Higher</label
+                  >
+                </div>
+              </form>
+
+              <form id="filterFormCategory">
+                <h6 class="mt-4 mb-3 fw-bold">Category</h6>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value="All"
+                    name="category"
+                    id="categoryAll"
+                  />
+                  <label class="form-check-label" for="categoryAll"
+                    >All Categories</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value="Men"
+                    name="category"
+                    id="categoryMen"
+                  />
+                  <label class="form-check-label" for="categoryMen">Men</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value="Women"
+                    name="category"
+                    id="categoryWomen"
+                  />
+                  <label class="form-check-label" for="categoryWomen"
+                    >Women</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value="Child"
+                    name="category"
+                    id="categoryChild"
+                  />
+                  <label class="form-check-label" for="categoryChild"
+                    >Child</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value="Technology"
+                    name="category"
+                    id="categoryTech"
+                  />
+                  <label class="form-check-label" for="categoryTech"
+                    >Technology</label
+                  >
+                </div>
+              </form>
+
+              <button
+                class="btn btn-primary w-100 mt-4 login-button fs-6"
+                id="btn-filter"
+              >
+                Apply Filters
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-9 col-12">
+          <div
+            class="row row-cols-1 row-cols-lg-3 row-cols-md-2 g-4"
+            id="card-head"
+          ></div>
+        </div>
+      </div>
     </div>
   </body>
   <script type="module" src="../JS/Product.js"></script>

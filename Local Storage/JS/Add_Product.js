@@ -32,10 +32,9 @@ const Product_Form = (event) => {
 
   ProductData.push(Data);
   localStorage.setItem("productData", JSON.stringify(ProductData));
-
   form.reset();
 };
 
 navbar();
-const form = getElementQuerySelector("form");
+const form = getElementQuerySelector("#form");
 form.addEventListener("submit", Product_Form);
