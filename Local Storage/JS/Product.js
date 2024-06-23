@@ -75,10 +75,11 @@ const UI_Product = (Data) => {
 
 const existUser = () => {
   if (isLogin) {
-    UI_Product(ProductData);
-  } else if (ProductData.length === 0) {
-    alert("You have to add product first!!");
-    window.location.href = "Add_Product.htm";
+    if (ProductData.length === 0) {
+      alert("You have to add product first!!");
+      window.location.href = "Add_Product.htm";
+      return;
+    } else UI_Product(ProductData);
   } else {
     alert("You have to login first!!");
     window.location.href = "login.html";

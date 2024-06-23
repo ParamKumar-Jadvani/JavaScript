@@ -155,10 +155,11 @@ const handleQty = (index, opr) => {
 
 const existUser = () => {
   if (isLogin) {
-    cartPage_UI(cartList);
-  } else if (ProductData.length === 0) {
-    alert("You have to add product first!!");
-    window.location.href = "Add_Product.htm";
+    if (cartList.length === 0) {
+      alert("You have to add product first!!");
+      window.location.href = "Add_Product.htm";
+      return;
+    } else UI_Product(cartList);
   } else {
     alert("You have to login first!!");
     window.location.href = "login.html";

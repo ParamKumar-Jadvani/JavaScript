@@ -32,7 +32,7 @@ const LoginData = (event) => {
     }
   } else {
     alert("Account not found");
-    window.location.reload();
+    window.location.href = "Signup.html";
   }
 };
 
