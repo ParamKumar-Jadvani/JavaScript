@@ -162,7 +162,7 @@ const existUser = () => {
     } else UI_Product(cartList);
   } else {
     alert("You have to login first!!");
-    window.location.href = "login.html";
+    window.location.href = "Login.html";
   }
 };
 
