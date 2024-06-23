@@ -43,6 +43,23 @@
         font-weight: 500 !important;
         font-size: 16px;
       }
+      .buy-now-btn,
+      #btn-filter {
+        background-color: #039aff;
+        color: #fff;
+        transition: all 0.3s ease-in-out;
+        padding: 8px 20px;
+        border-radius: 50px;
+        font-size: 14px;
+      }
+      .buy-now-btn:hover,
+      #btn-filter:hover {
+        background: #fff;
+        color: #039aff;
+        border-color: #006bb3;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+          rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+      }
     </style>
   </head>
   <body>
@@ -151,7 +168,7 @@
               </form>
 
               <button
-                class="btn btn-primary w-100 mt-4 login-button fs-6"
+                class="btn btn-primary w-100 mt-4 fs-6 border-2"
                 id="btn-filter"
               >
                 Apply Filters

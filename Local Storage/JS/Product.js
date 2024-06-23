@@ -7,6 +7,7 @@ import {
 import { navbar_Components, navbar_Styles } from "../Components/Navbar.js";
 
 const ProductData = JSON.parse(localStorage.getItem("productData")) || [];
+const cartList = JSON.parse(localStorage.getItem("cartList")) || [];
 const isLogin = localStorage.getItem("isLogin") || false;
 const card_Head = getElement("card-head");
 const filterBtn = getElement("btn-filter");
@@ -31,6 +32,9 @@ const UI_Product = (Data) => {
       class: "col rounded-4",
       id: "card",
     });
+    const buyBtn = createElement("button", "Buy Now", {
+      class: "fs-6 fw-bold border-0 buy-now-btn",
+    });
 
     card_body.append(
       createElement("h5", `${elem.name}`, { class: "card-title fw-bold" }),
@@ -48,7 +52,8 @@ const UI_Product = (Data) => {
         {
           class: "card-text",
         }
-      )
+      ),
+      buyBtn
     );
 
     card.append(
@@ -64,12 +69,16 @@ const UI_Product = (Data) => {
     );
     col.append(card);
     card_Head.append(col);
+    buyBtn.addEventListener("click", () => Add_CartList_Product(elem));
   });
 };
 
 const existUser = () => {
   if (isLogin) {
     UI_Product(ProductData);
+  } else if (ProductData.length === 0) {
+    alert("You have to add product first!!");
+    window.location.href = "Add_Product.htm";
   } else {
     alert("You have to login first!!");
     window.location.href = "login.html";
@@ -117,6 +126,25 @@ const SearchInputData = (event) => {
   const searchProducts = handleSearchData(search_Value);
 
   UI_Product(searchProducts);
+};
+
+const Add_CartList_Product = (elem) => {
+  const isExists = (id) => {
+    const temp = cartList.filter((item) => item.id == id);
+    return temp.length > 0;
+  };
+
+  if (isExists(elem.id)) {
+    cartList?.map((item, index) => {
+      if (item.id == elem.id) cartList[index].qty += 1;
+      alert("Product added successfully...");
+    });
+  } else {
+    cartList.push({ ...elem, qty: 1 });
+    alert("Product added successfully...");
+  }
+
+  localStorage.setItem("cartList", JSON.stringify(cartList));
 };
 
 navbar();

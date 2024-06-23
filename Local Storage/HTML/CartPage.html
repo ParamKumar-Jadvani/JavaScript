@@ -10,9 +10,84 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <style>
+      .btn-cartList {
+        transition: all 0.3s ease-in-out;
+        padding: 8px 20px;
+        border-radius: 50px;
+        font-size: 14px;
+      }
+      .btn-cartList:hover {
+        background: #fff;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+          rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+      }
+      .cart-img {
+        object-fit: cover !important;
+        border-radius: 9% !important;
+      }
+      .hr {
+        width: 96.5% !important;
+        margin: auto !important;
+        margin-top: 3.2% !important;
+      }
+      #minus {
+        width: 8px;
+        height: 1px !important;
+        background: #000;
+        margin: auto !important;
+      }
+      .btn-danger:hover {
+        color: red !important;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+          rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+      }
+      .btn-primary {
+        background-color: #039aff;
+        color: #fff;
+        transition: all 0.3s ease-in-out;
+        padding: 8px 20px;
+        border-radius: 50px;
+        font-size: 14px;
+      }
+      .btn-primary:hover {
+        background: #fff;
+        color: #039aff;
+        border-color: #006bb3;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+          rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+      }
+      #CartPage {
+        margin-top: 10% !important;
+      }
+      @media (min-width: 400px) and (max-width: 761px) {
+        #CartPage {
+          margin-top: 20% !important;
+        }
+      }
+      @media (min-width: 300px) and (max-width: 400px) {
+        #CartPage {
+          margin-top: 25% !important;
+        }
+      }
+    </style>
   </head>
   <body>
     <div id="navbar"></div>
+    <div class="container mt-5" id="CartPage">
+      <h2 class="mb-4">Shopping Cart</h2>
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="card mb-4">
+            <div class="card-header">
+              <h5 class="mb-0">Cart Items</h5>
+            </div>
+            <div class="card-body" id="cartProduct"></div>
+          </div>
+        </div>
+        <div class="col-lg-4" id="cartBill"></div>
+      </div>
+    </div>
   </body>
   <script type="module" src="../JS/CartPage.js"></script>
   <script

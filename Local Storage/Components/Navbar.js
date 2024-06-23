@@ -133,7 +133,13 @@ const navbar_Styles = () => {
         transition: all 0.3s;
       }
       .login-button:hover {
-        background: #006bb3;
+        background: #fff;
+        color: #039aff;
+        border-color: #006bb3;
+        border: 1px solid;
+        border-color: #039aff !important;
+        border: 1px solid !important;
+        box-shadow: rgba(255, 255, 255, 0.56) 0px 22px 70px 4px !important;
       }
       .navbar-toggler {
         border: none;
@@ -191,6 +197,9 @@ const navbar_Styles = () => {
         color: #039aff;
         border-color: #006bb3;
         border: 1px solid;
+        border-color: #039aff !important;
+        border: 1px solid !important;
+        box-shadow: rgba(255, 255, 255, 0.56) 0px 22px 70px 4px !important;
       }
 
       #input-search {

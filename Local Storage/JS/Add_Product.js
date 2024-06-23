@@ -28,6 +28,8 @@ const Product_Form = (event) => {
     category,
     image,
     description,
+    id:
+      ProductData.length === 0 ? 1 : ProductData[ProductData.length - 1].id + 1,
   };
 
   ProductData.push(Data);
