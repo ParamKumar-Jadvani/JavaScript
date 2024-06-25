@@ -157,7 +157,7 @@ const existUser = () => {
   if (isLogin) {
     if (cartList.length === 0) {
       alert("You have to add product first!!");
-      window.location.href = "Add_Product.htm";
+      window.location.href = "Add_Product.html";
       return;
     } else UI_Product(cartList);
   } else {
