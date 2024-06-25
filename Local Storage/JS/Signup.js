@@ -20,7 +20,7 @@ const SignUpData = (event) => {
 
   if (isLogin) {
     alert("You have already signed up!! Please Login into your account");
-    window.location.href = "login.html";
+    window.location.href = "Login.html";
     return;
   }
 
@@ -43,7 +43,7 @@ const SignUpData = (event) => {
       };
       localStorage.setItem("userData", JSON.stringify(userData));
       alert("Form submitted successfully!");
-      window.location.href = "login.html";
+      window.location.href = "Login.html";
     }
   } else {
     signUpForm.classList.add("was-validated");
