@@ -159,7 +159,7 @@ const existUser = () => {
       alert("You have to add product first!!");
       window.location.href = "Add_Product.html";
       return;
-    } else UI_Product(cartList);
+    } else cartPage_UI(cartList);
   } else {
     alert("You have to login first!!");
     window.location.href = "Login.html";
