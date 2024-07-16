@@ -3,54 +3,98 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Music Player</title>
-    <link rel="stylesheet" href="./style.css" />
+    <title>Audio Player</title>
+    <link rel="stylesheet" href="/Tailwind CSS/src/output.css" />
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
     />
     <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
       rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
   </head>
-  <body>
-    <div class="player container mt-5 p-4 rounded shadow">
-      <div class="now-playing mb-3">
-        <img id="song-image" src="" alt="Song Image" width="50" height="50" />
-        <span id="current-song">None</span>
-      </div>
-      <div class="d-flex justify-content-around">
-        <button id="repeat" class="btn btn-warning">
-          <i class="fas fa-redo"></i>
-        </button>
-        <div class="progress-container mb-3">
-          <div class="progress-bar" id="progress-bar"></div>
+  <body
+    class="bg-gray-950 text-white min-h-screen flex items-center justify-center"
+  >
+    <div class="container mx-auto p-8 max-w-screen-md">
+      <div class="text-center mb-8">
+        <h1 class="text-4xl font-mono font-semibold mb-4">Audio Player</h1>
+        <div
+          class="flex flex-col lg:flex-row lg:justify-around items-center bg-gray-900 p-6 rounded-lg shadow-lg"
+        >
+          <img
+            id="song-image"
+            src="./Images/Apna-Bana-Le.jpg"
+            alt="Song Image"
+            class="lg:w-56 w-full lg:h-48 h-60 my-10 rounded-lg shadow-md"
+          />
+
+          <audio id="audio" src="./Audio/apna bana le.mp3"></audio>
+
+          <div class="flex flex-col">
+            <div class="mb-4">
+              <input
+                type="range"
+                id="volume-range"
+                class="w-full h-4"
+                min="0"
+                max="1"
+                step="0.01"
+                value="0"
+                oninput="changeVolume()"
+              />
+            </div>
+
+            <div class="flex justify-center space-x-4">
+              <button
+                id="repeat"
+                class="p-2 bg-gray-800 rounded-full text-xl hover:bg-gray-600 focus:bg-gray-600 active:bg-gray-400 transition-colors duration-200"
+              >
+                <i class="fas fa-redo"></i>
+              </button>
+
+              <button
+                id="prev"
+                class="p-2 bg-gray-800 rounded-full text-xl hover:bg-gray-600 focus:bg-gray-600 active:bg-gray-400 transition-colors duration-200"
+              >
+                <i class="fas fa-backward"></i>
+              </button>
+
+              <button
+                id="play-pause"
+                class="p-2 bg-gray-800 rounded-full text-xl hover:bg-gray-600 focus:bg-gray-600 active:bg-gray-400 transition-colors duration-200"
+              >
+                <i id="play-pause-icon" class="fas fa-play"></i>
+              </button>
+
+              <button
+                id="next"
+                class="p-2 bg-gray-800 rounded-full text-xl hover:bg-gray-600 focus:bg-gray-600 active:bg-gray-400 transition-colors duration-200"
+              >
+                <i class="fas fa-forward"></i>
+              </button>
+
+              <button
+                id="shuffle"
+                class="p-2 bg-gray-800 rounded-full text-xl hover:bg-gray-600 focus:bg-gray-600 active:bg-gray-400 transition-colors duration-200"
+              >
+                <i class="fas fa-random"></i>
+              </button>
+            </div>
+          </div>
         </div>
-        <button id="shuffle" class="btn btn-info">
-          <i class="fas fa-random"></i>
-        </button>
       </div>
-      <div class="controls d-flex justify-content-around">
-        <button id="prev" class="btn btn-primary">
-          <i class="fas fa-backward"></i>
-        </button>
-        <button id="play-pause" class="btn btn-success">
-          <i class="fas fa-play"></i>
-        </button>
-        <button id="next" class="btn btn-primary">
-          <i class="fas fa-forward"></i>
-        </button>
+
+      <div
+        class="flex flex-col items-center space-y-4 p-6 rounded-lg shadow-lg bg-gray-900"
+      >
+        <h2 class="text-2xl mb-3 font-semibold text-start">Playlist</h2>
+        <ul class="list-none flex flex-col gap-2" id="playlist">
+          <!-- Playlist items will be dynamically added here -->
+        </ul>
       </div>
     </div>
-    <ul class="playlist container mt-5 w-100 mx-auto p-0"></ul>
   </body>
   <script src="./index.js"></script>
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"
-  ></script>
 </html>
