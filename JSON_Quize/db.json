@@ -1,0 +1,64 @@
+{
+  "Questions": [
+    {
+      "Que": "Who is teaching Backend in Red and Multimedia Education at Branch ved Road?",
+      "options": {
+        "A": "Jay Gondaliya",
+        "B": "Vrajesh Rank",
+        "C": "Rajat Sinha",
+        "D": "Kapil Sharma"
+      },
+      "Answer": "C",
+      "id": "d42e"
+    },
+    {
+      "Que": "Who is the 1st President of India?",
+      "options": {
+        "A": "Rajendra Prasad",
+        "B": "Sardar Patel",
+        "C": "Shah Rukh Khan",
+        "D": "Donald Trump"
+      },
+      "Answer": "A",
+      "id": "f013"
+    },
+    {
+      "Que": "Give the name of the child Mughal king Babar?",
+      "options": {
+        "A": "Akbar",
+        "B": "Humayun",
+        "C": "Shahjahan",
+        "D": "Rajat Sinha"
+      },
+      "Answer": "B",
+      "id": "6e84"
+    },
+    {
+      "Que": "What do you call a boomerang that doesn't come back?",
+      "options": {
+        "A": "A stick",
+        "B": "A wand",
+        "C": "A straight-rang",
+        "D": "Lost cause"
+      },
+      "Answer": "D",
+      "id": "74b5"
+    },
+    {
+      "Que": "What's the scientific term for a fear of palindromes?",
+      "options": {
+        "A": "Palindromatophobia",
+        "B": "Aibohphobia",
+        "C": "Revirginitiphobia",
+        "D": "Hippopotomonstrosesquippedaliophobia"
+      },
+      "Answer": "B",
+      "id": "f60d"
+    }
+  ],
+  "Score": {
+    "right": 0,
+    "wrong": 0,
+    "unanswered": 0
+  }
+}

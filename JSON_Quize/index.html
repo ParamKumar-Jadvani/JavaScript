@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz App</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      }
+      .correct-answer {
+        background-color: #28a745; /* Bright green */
+        border: 2px solid #218838; /* Darker green border */
+        color: #000; /* White text */
+        font-weight: bold;
+      }
+      .wrong-answer {
+        background-color: #dc3545; /* Bright red */
+        border: 2px solid #c82333; /* Darker red border */
+        color: #000; /* White text */
+        font-weight: bold;
+      }
+      .unanswered {
+        background-color: #e2e3e5;
+        border: 1px solid #d6d6d6;
+      }
+      .option-label {
+        margin-bottom: 1rem;
+        padding: 1rem;
+        background: #f8f9fa;
+        border-radius: 0.25rem;
+        display: flex;
+        align-items: center;
+      }
+      .option-input {
+        margin-right: 0.5rem;
+      }
+      .question-container {
+        margin-bottom: 1rem;
+        padding: 1rem;
+        background: #ffffff;
+        border-radius: 0.25rem;
+        box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+      }
+      .form-container {
+        margin-top: 2rem;
+        background: #ffffff;
+        padding: 1rem;
+        border-radius: 0.25rem;
+        box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+      }
+      video {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        border-radius: 0.25rem;
+        box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+      }
+      .option-label input[type="radio"] {
+        accent-color: #007bff; /* Customize radio button color */
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gray-100 min-h-screen flex flex-col justify-center items-center"
+  >
+    <video id="video" autoplay muted></video>
+    <div id="question_list" class="w-full max-w-xl p-4"></div>
+    <div class="w-full max-w-xl p-4 flex justify-between">
+      <button
+        id="submit-btn"
+        class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+        type="button"
+      >
+        Submit Test
+      </button>
+      <button
+        id="restart-btn"
+        class="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600"
+        type="button"
+        style="display: none"
+      >
+        Restart Quiz
+      </button>
+    </div>
+    <hr class="my-4 w-full max-w-xl" />
+    <div class="form-container">
+      <form id="form" class="w-full max-w-xl">
+        <p class="text-xl font-bold mb-4">Add More Questions</p>
+        <input
+          class="mb-3 p-2 border border-gray-300 rounded w-full"
+          type="text"
+          placeholder="Enter Question"
+          id="que"
+          required
+        />
+        <input
+          class="mb-3 p-2 border border-gray-300 rounded w-full"
+          type="text"
+          placeholder="Option A"
+          id="opA"
+          required
+        />
+        <input
+          class="mb-3 p-2 border border-gray-300 rounded w-full"
+          type="text"
+          placeholder="Option B"
+          id="opB"
+          required
+        />
+        <input
+          class="mb-3 p-2 border border-gray-300 rounded w-full"
+          type="text"
+          placeholder="Option C"
+          id="opC"
+          required
+        />
+        <input
+          class="mb-3 p-2 border border-gray-300 rounded w-full"
+          type="text"
+          placeholder="Option D"
+          id="opD"
+          required
+        />
+        <input
+          class="mb-3 p-2 border border-gray-300 rounded w-full"
+          type="text"
+          placeholder="Enter Answer"
+          id="ans"
+          required
+        />
+        <button
+          class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 w-full"
+          type="submit"
+        >
+          Submit Question
+        </button>
+      </form>
+      <ul id="visibility-messages"></ul>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
