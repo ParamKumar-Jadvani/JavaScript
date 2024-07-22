@@ -1,5 +1,5 @@
 import { getFoodData, getUsers, updateUser } from "../Components/api.js";
-import { createElement, getElement } from "../Components/Helper.js";
+import { createElement, getElement } from "../Components/helper.js";
 import { navbar_Components, navbar_Styles } from "../Components/navbar.js";
 
 const navbar = getElement("navbar");

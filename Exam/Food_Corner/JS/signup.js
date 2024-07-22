@@ -1,5 +1,5 @@
 import { post } from "../Components/api.js";
-import { getElement } from "../Components/Helper.js";
+import { getElement } from "../Components/helper.js";
 import { navbar_Components, navbar_Styles } from "../Components/navbar.js";
 
 const navbar = getElement("navbar");
