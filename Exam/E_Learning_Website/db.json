@@ -1,0 +1,35 @@
+{
+  "courses": [
+    {
+      "id": "4ce1",
+      "name": "JEE",
+      "img": "https://images.hindustantimes.com/img/2023/01/11/1600x900/jee_main_2023_1673406172968_1673406173333_1673406173333.png",
+      "topic": "JEE",
+      "courseSubtopics": [
+        "Maths",
+        "Physics",
+        "Chemistry"
+      ],
+      "price": "19999"
+    }
+  ],
+  "users": [
+    {
+      "id": "ffe4",
+      "name": "sanghani jigar ",
+      "email": "deeepaksingh99@gmail.com",
+      "password": "neel",
+      "role": "users",
+      "purchase": []
+    }
+  ],
+  "admins": [
+    {
+      "id": "ddf6",
+      "name": "sanghani jigar ",
+      "email": "kalathiyaneel4@gmail.com",
+      "password": "neel",
+      "role": "admins"
+    }
+  ]
+}
