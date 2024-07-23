@@ -31,23 +31,22 @@ document.getElementById("login").addEventListener("submit", async (e) => {
     email,
     password,
   };
-  if (!(await existUser(email))) return;
-  else {
+  if (!(await existUser(email))) {
+    alert("email does not exist");
+    document.getElementById("email").value = "";
+    document.getElementById("password").value = "";
+    return;
+  } else {
     const existUserData = await existUser(email);
     user.role = existUserData.role;
 
-    if (email === existUserData.email) {
-      if (password === existUserData.password) {
-        localStorage.setItem("loginData", JSON.stringify(user));
-        console.log(user);
-        window.location.href = "/Exam/E_Learning_Website/index.html";
-      } else {
-        alert("Invalid password");
-        document.getElementById("password").value = "";
-      }
+    if (password === existUserData.password) {
+      user.id = existUserData.id;
+      localStorage.setItem("loginData", JSON.stringify(user));
+      console.log(user);
+      window.location.href = "/Exam/E_Learning_Website/index.html";
     } else {
-      alert("Invalid email");
-      document.getElementById("email").value = "";
+      alert("Invalid password");
       document.getElementById("password").value = "";
     }
   }

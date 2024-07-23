@@ -25,6 +25,7 @@ document
       document.querySelectorAll("#subtopic input")
     ).map((input) => input.value);
     const price = document.getElementById("price").value;
+    const seats = document.getElementById("seats").value;
 
     const courseData = {
       name,
@@ -32,6 +33,11 @@ document
       topic,
       courseSubtopics,
       price,
+      seats,
+      author: loginData.username,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      comments: [],
     };
     createCourse(courseData);
   });

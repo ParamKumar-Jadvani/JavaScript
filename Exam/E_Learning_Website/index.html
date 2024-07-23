@@ -11,32 +11,65 @@
       crossorigin="anonymous"
     />
     <style>
+      .col {
+        margin-bottom: 16px;
+      }
+
       .course-card {
-        border-radius: 15px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        transition: transform 0.3s;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 16px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
-      .course-card:hover {
-        transform: scale(1.05);
-      }
+
       .course-title {
-        background-color: #0056b3;
+        background-color: #007bff;
         color: white;
         padding: 10px;
-        border-radius: 15px 15px 0 0;
+        border-radius: 5px;
+        font-size: 20px;
+        margin-bottom: 8px;
       }
-      .course-body {
-        padding: 15px;
-        background-color: #f8f9fa;
+
+      .img-fluid {
+        width: 100% !important;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+
+      .accordion-button {
+        background-color: transparent;
+        border: none;
+        color: #007bff;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .accordion-collapse {
+        margin-top: 8px;
+      }
+
+      .buy-button {
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        margin-top: 16px;
       }
     </style>
   </head>
   <body>
     <div id="navbar"></div>
     <div class="d-flex justify-content-center flex-column flex-md-row m-3">
-      <h4 class="mx-3">Sorting</h4>
-      <button id="HTL" class="mx-3">High To Low</button
-      ><button class="mx-3" id="LTH">Low To High</button>
+      <h4 class="mx-3 mt-1">Sorting</h4>
+      <button id="HTL" class="mx-3 mt-0 buy-button my-2" value="HTL">
+        High To Low</button
+      ><button id="LTH" class="mx-3 mt-0 buy-button my-2" value="LTH">
+        Low To High
+      </button>
     </div>
     <div class="container my-5">
       <div id="course-list" class="row row-cols-1 row-cols-md-3 g-4"></div>

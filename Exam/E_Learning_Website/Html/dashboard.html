@@ -10,16 +10,72 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <style>
+      .col {
+        margin-bottom: 16px;
+        width: 350px;
+      }
+
+      .course-card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 16px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .course-title {
+        background-color: #007bff;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 20px;
+        margin-bottom: 8px;
+      }
+
+      .img-fluid {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
+      }
+
+      .accordion-button {
+        background-color: transparent;
+        border: none;
+        color: #007bff;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .accordion-collapse {
+        margin-top: 8px;
+      }
+
+      .buy-button {
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        margin-top: 16px;
+      }
+    </style>
   </head>
   <body>
-    <div id="navbar">
-        
+    <div id="navbar"></div>
+
+    <div class="container my-5">
+      <div id="course-list" class="row row-cols-1 row-cols-md-2 g-4 mx-auto"></div>
     </div>
+
+    <script
+      src="/Exam/E_Learning_Website/JS/dashboard.js"
+      type="module"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
   </body>
-  <script src="/Exam/E_Learning_Website/JS/dashboard.js" type="module"></script>
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"
-  ></script>
 </html>

@@ -13,6 +13,13 @@ const getUser = async () => {
   return await response.json();
 };
 
+const getUserbyID = async (id) => {
+  const response = await fetch(
+    `https://e-learning-json-server.onrender.com/users/${id}`
+  );
+  return await response.json();
+};
+
 const getAdmins = async () => {
   const response = await fetch(
     "https://e-learning-json-server.onrender.com/admins"
@@ -38,4 +45,39 @@ const getCourses = async () => {
   return await response.json();
 };
 
-export { createAdmin_User, getUser, getAdmins, createCourse, getCourses };
+const updateCourse = async (data) => {
+  const response = await fetch(
+    `https://e-learning-json-server.onrender.com/courses/${data.id}`,
+    {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    }
+  );
+};
+
+const updateUser = async (id, data) => {
+  const response = await fetch(
+    `https://e-learning-json-server.onrender.com/users/${id}`,
+    {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    }
+  );
+};
+
+export {
+  createAdmin_User,
+  getUser,
+  getAdmins,
+  createCourse,
+  getCourses,
+  updateUser,
+  getUserbyID,
+  updateCourse
+};
