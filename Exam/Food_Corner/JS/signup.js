@@ -46,6 +46,8 @@ document.getElementById("signup").addEventListener("submit", (event) => {
     password,
     phone,
     city,
+    purchase: [],
+    cart: [],
   };
   post(user);
 });

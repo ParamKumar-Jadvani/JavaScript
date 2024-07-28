@@ -1,5 +1,5 @@
 const createAdmin_User = async (data, role) => {
-  await fetch(`https://e-learning-json-server.onrender.com/${role}`, {
+  await fetch(`https://json-server-hkhy.onrender.com/${role}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
@@ -7,29 +7,25 @@ const createAdmin_User = async (data, role) => {
 };
 
 const getUser = async () => {
-  const response = await fetch(
-    "https://e-learning-json-server.onrender.com/users"
-  );
+  const response = await fetch("https://json-server-hkhy.onrender.com/users");
   return await response.json();
 };
 
 const getUserbyID = async (id) => {
   const response = await fetch(
-    `https://e-learning-json-server.onrender.com/users/${id}`
+    `https://json-server-hkhy.onrender.com/users/${id}`
   );
   return await response.json();
 };
 
 const getAdmins = async () => {
-  const response = await fetch(
-    "https://e-learning-json-server.onrender.com/admins"
-  );
+  const response = await fetch("https://json-server-hkhy.onrender.com/admins");
   return await response.json();
 };
 
 const createCourse = async (data) => {
   const response = await fetch(
-    "https://e-learning-json-server.onrender.com/courses",
+    "https://json-server-hkhy.onrender.com/courses",
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -39,15 +35,13 @@ const createCourse = async (data) => {
 };
 
 const getCourses = async () => {
-  const response = await fetch(
-    "https://e-learning-json-server.onrender.com/courses"
-  );
+  const response = await fetch("https://json-server-hkhy.onrender.com/courses");
   return await response.json();
 };
 
 const updateCourse = async (data) => {
   const response = await fetch(
-    `https://e-learning-json-server.onrender.com/courses/${data.id}`,
+    `https://json-server-hkhy.onrender.com/courses/${data.id}`,
     {
       method: "PUT",
       headers: {
@@ -60,7 +54,7 @@ const updateCourse = async (data) => {
 
 const updateUser = async (id, data) => {
   const response = await fetch(
-    `https://e-learning-json-server.onrender.com/users/${id}`,
+    `https://json-server-hkhy.onrender.com/users/${id}`,
     {
       method: "PATCH",
       headers: {
@@ -79,5 +73,5 @@ export {
   getCourses,
   updateUser,
   getUserbyID,
-  updateCourse
+  updateCourse,
 };

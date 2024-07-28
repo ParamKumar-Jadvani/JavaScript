@@ -52,6 +52,7 @@ document.getElementById("signup").addEventListener("submit", async (e) => {
           password,
           role,
           purchase: [],
+          cart: [],
         }
       : { name, email, password, role };
 
