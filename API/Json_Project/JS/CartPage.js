@@ -1,5 +1,10 @@
 import { updateCartItem, getUsers } from "../Components/api.js";
-import { checkIsLogin, createElement, getElement } from "../Components/Helper.js";
+import {
+  checkIsLogin,
+  createElement,
+  getElement,
+  logout,
+} from "../Components/Helper.js";
 import { navbar_Components, navbar_Styles } from "../Components/Navbar.js";
 
 let cartList = [];
