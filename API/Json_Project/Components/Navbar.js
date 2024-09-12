@@ -1,4 +1,4 @@
-const navbar_Components = () => {
+const navbar_Components = (isLogin = false) => {
   return `<nav class="navbar navbar-expand-lg fixed-top">
           <div class="container">
             <a class="navbar-brand me-auto" href="/API/Json_Project/index.html"
@@ -71,16 +71,24 @@ const navbar_Components = () => {
                 </ul>
               </div>
             </div>
-            <a
-              href="/API/Json_Project/HTML/Login.html"
-              class="login-button mx-1"
-              >Login</a
+            <button
+              class="login-button mx-1" id="loginBtn"
+              >${isLogin ? "Logout" : "Login"}</button
             >
-            <a
-              class="login-button mx-1"
-              href="/API/Json_Project/HTML/Signup.html"
-              >Sign Up</a
-            >
+            ${
+              isLogin
+                ? `<a
+                    class="login-button mx-1"
+                    href="/API/Json_Project/HTML/Profile.html"
+                    >Profile</a
+                  >`
+                : `<a
+                  class="login-button mx-1"
+                  href="/API/Json_Project/HTML/Signup.html"
+                >
+                  Sign Up
+                </a>`
+            }
             <button
               class="navbar-toggler pe-0"
               type="button"

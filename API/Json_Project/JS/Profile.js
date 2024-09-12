@@ -21,4 +21,17 @@ const navbar = () => {
   });
 };
 
+const loadUserProfile = () => {
+  const data = JSON.parse(localStorage.getItem("isLogin"));
+
+  if (data) {
+    document.getElementById("profileName").innerHTML = data.name;
+    document.getElementById("profileEmail").innerHTML = data.email;
+  } else {
+    window.location.href = "/API/Json_Project/HTML/Login.html";
+  }
+};
+
+loadUserProfile();
+
 navbar();

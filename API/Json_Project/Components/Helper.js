@@ -19,4 +19,22 @@ const getElementQuerySelector = (id) => {
   return document.querySelector(id);
 };
 
-export { createElement, getElement, getValue, getElementQuerySelector };
+const checkIsLogin = (token) => {
+  const isLogin = localStorage.getItem(token);
+  if (isLogin) return true;
+  return false;
+};
+
+const logout = (id) => {
+  localStorage.removeItem("isLogin");
+  window.location.href = "/API/Json_Project/index.html";
+};
+
+export {
+  createElement,
+  getElement,
+  getValue,
+  getElementQuerySelector,
+  checkIsLogin,
+  logout,
+};

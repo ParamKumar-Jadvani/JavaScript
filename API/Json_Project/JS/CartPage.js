@@ -1,5 +1,5 @@
 import { updateCartItem, getUsers } from "../Components/api.js";
-import { createElement, getElement } from "../Components/Helper.js";
+import { checkIsLogin, createElement, getElement } from "../Components/Helper.js";
 import { navbar_Components, navbar_Styles } from "../Components/Navbar.js";
 
 let cartList = [];
@@ -9,12 +9,21 @@ const cartBill = getElement("cartBill");
 
 const navbar = () => {
   const navbar = getElement("navbar");
-  navbar.innerHTML = navbar_Components();
+  navbar.innerHTML = navbar_Components(checkIsLogin("isLogin"));
 
   document.addEventListener("DOMContentLoaded", function () {
     const styleTag = document.createElement("style");
     styleTag.innerHTML = navbar_Styles();
     document.head.appendChild(styleTag);
+  });
+
+  document.getElementById("loginBtn").addEventListener("click", (event) => {
+    console.log();
+    if (event.target.innerHTML == "Login") {
+      window.location.href = "/API/Json_Project/HTML/Login.html";
+    } else if (event.target.innerHTML == "Logout") {
+      logout();
+    }
   });
 };
 
